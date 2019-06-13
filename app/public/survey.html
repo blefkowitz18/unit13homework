@@ -12,20 +12,20 @@
         About You
     </h3>
     <form>
-        Name: <input type="text" value = "Write your name here">
+        Name: <input type="text" value = "Write your name here" id="name">
         <br>
-        Please add a photo of yourself here using a URL: <input type ="url" value = "please add an image of yourself here.">
+        Please add a photo of yourself here using a URL: <input type ="url" value = "please add an image of yourself here." id = "photo">
     <h4>Directions - Please annwer each question by using the drop down menus.</h4>
     <h4>Question 1</h4>
     <p>Your mind is always buzzing with unexplored ideas and plans.</p>
-    <select>
-        <option>1 (strongly disagree)</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5 (strongly agree)</option>
+    <select id="questionOne">
+        <option value ="1">1 (strongly disagree)</option>
+        <option value ="2">2</option>
+        <option value ="3">3</option>
+        <option value ="4">4</option>
+        <option value ="5">5 (strongly agree)</option>
     </select>
-    <h4>Question 2</h4>
+    <!-- <h4>Question 2</h4>
     <p>Generally speaking, you rely more on your experience than your imagination.</p>
         <select>
             <option>1 (strongly disagree)</option>
@@ -108,7 +108,34 @@
             <option>5 (strongly agree)</option>
         </select>
         <br>
-        <br>
+        <br> -->
         <input type="submit" value="Submit">
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $($add-button).on("click", function(event){
+        event.preventDefault();
+        var newPerson = {
+            name: $("#name").val().trim(),
+            photo: $("#photo").val().trim(),
+            score: [
+                $("#questionOne").val().trim()
+            ]
+        }
+        $.post("/api/survey", newPerson,
+        function(data){
+            if(data){
+                console.log("working")
+            }
+            else{
+                console.log("server failed")
+            }
+
+        })
+    })
+    
+
+</script>
 </body>
