@@ -1,31 +1,31 @@
 var friendsArray = [
     {
         name: "Ahmed",
-        photo: "nah son",
+        photo: "https://i.ytimg.com/vi/iUacZrdf8N8/maxresdefault.jpg",
         scores: ["1",
         "3",
-    //     "2",
-    //     "1",
-    //     "3",
-    //     "2",
-    //     "1",
-    //      "3",
-    //      "2",
-    //      "4"
+        "2",
+        "1",
+        "3",
+        "2",
+        "1",
+         "3",
+         "2",
+         "4"
         ]},
     {
         name: "Sharon",
         photo: "nah daughter",
-        question1: ["4",
+        scores: ["4",
         "2",
-        // "5",
-        // "2",
-        // "2",
-        // "1",
-        // "1",
-        // "4",
-        // "2",
-        //  "5"
+        "5",
+        "2",
+        "2",
+        "1",
+        "1",
+        "4",
+        "2",
+         "5"
         ]},
 ];
 

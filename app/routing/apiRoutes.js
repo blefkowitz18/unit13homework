@@ -8,16 +8,19 @@ module.exports = function (app) {
         var matchScore = 1000;
         for (var i=0; i<tableData.length; i++){
             var friend = tableData[i];
-            var inputScores = req.scores;
             var score = 0;
+            //console.log(req.body.scores)
             for(var j=0; j<friend.scores.length; j++){
-                score += math.abs(parseInt(friend.scores[j])-parseInt(inputScores[j]));
+                //console.log("friend" + friend.scores[j])
+                //console.log("req" + req.body.scores[j])
+                score = score + Math.abs(parseInt(friend.scores[j])-parseFloat(req.body.scores[j]));
             }
             if (matchScore > score){
                 bestFriend = friend
                 matchScore = score
                 //new match score gets set equal to the score to beat. We want to be closeest to 0.
             }
+            console.log(bestFriend)
         }
         res.json(bestFriend);
     });
