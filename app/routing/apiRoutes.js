@@ -11,7 +11,7 @@ module.exports = function (app) {
             var inputScores = req.scores;
             var score = 0;
             for(var j=0; j<friend.scores.length; j++){
-                score += abs(parseInt(friend.scores[j])-parseInt(inputScores[j]));
+                score += math.abs(parseInt(friend.scores[j])-parseInt(inputScores[j]));
             }
             if (matchScore > score){
                 bestFriend = friend
